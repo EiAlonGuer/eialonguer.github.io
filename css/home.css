@@ -1,5 +1,5 @@
 body{
-    height: 100lvh;
+    height: 100dvh;
     width: 100lvw;
     background-color: black;
     margin: 0rem;
@@ -10,15 +10,15 @@ body{
     display: block;
     width: 100lvw;
     text-align: center;
-    font-size: 3lvh;
+    font-size: 3dvh;
     color : white;
     background-color: red;
     object-fit: cover;
 }
 
 #imgcont > .image{
-    height: 80lvh;
-    width: 49.442lvh;
+    height: 80dvh;
+    width: 49.442dvh;
     object-fit: cover;
     object-position: 50% center;
 }
@@ -26,11 +26,11 @@ body{
 #imgcredit {
     font-family: sans-serif;
     position: absolute;
-    bottom: .4lvh;
+    bottom: .4dvh;
     width: fit-content;
     background-color: rgba(0,0,0,0.5);
     color: white;
-    font-size: 1lvh;
+    font-size: 1dvh;
 }
 
 #imgcredit > a:link {
