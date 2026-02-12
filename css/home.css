@@ -6,11 +6,38 @@ body{
     overflow: hidden;
 }
 
-#gallery > .image{
-    width: 40vmin;
-    height: 56vmin;
+#header{
+    display: flex;
+    text-align: center;
+    font-size: 200px;
+    color : white;
+    background-color: red;
+}
+
+#imgcont > .image{
+    width: 60vmin;
+    height: 80vmin;
     object-fit: cover;
-    object-position: center;
+    object-position: 100% center;
+}
+#imgcredit {
+    font-family: sans-serif;
+    position: absolute;
+    bottom: 0px;
+    width: fit-content;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 40px;
+}
+
+#imgcredit > a:link {
+    color: white;
+    text-decoration: none;
+}
+
+#imgcredit > a:hover {
+    color: cadetblue;
+    text-decoration: none;
 }
 
 #gallery{
