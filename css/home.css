@@ -8,16 +8,17 @@ body{
 
 #header{
     display: block;
+    width: 100vw;
     text-align: center;
-    font-size: 5vmin;
+    font-size: 3vh;
     color : white;
     background-color: red;
     object-fit: cover;
 }
 
 #imgcont > .image{
-    width: 60vmin;
-    height: 80vmin;
+    height: 80vh;
+    width: 49.442vh;
     object-fit: cover;
     object-position: 100% center;
 }
@@ -25,11 +26,11 @@ body{
 #imgcredit {
     font-family: sans-serif;
     position: absolute;
-    bottom: 0.5vmin;
+    bottom: .4vh;
     width: fit-content;
     background-color: rgba(0,0,0,0.5);
     color: white;
-    font-size: 1vmin;
+    font-size: 1vh;
 }
 
 #imgcredit > a:link {
@@ -46,7 +47,7 @@ body{
 
 #gallery{
     display: flex;
-    gap: 4vmin;
+    gap: 5vw;
     position:absolute;
     left: 50%;
     top: 50%;
