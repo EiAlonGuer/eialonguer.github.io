@@ -7,11 +7,12 @@ body{
 }
 
 #header{
-    display: flex;
+    display: block;
     text-align: center;
-    font-size: 200px;
+    font-size: 5vmin;
     color : white;
     background-color: red;
+    object-fit: cover;
 }
 
 #imgcont > .image{
@@ -20,22 +21,25 @@ body{
     object-fit: cover;
     object-position: 100% center;
 }
+
 #imgcredit {
     font-family: sans-serif;
     position: absolute;
-    bottom: 0px;
+    bottom: 0.5vmin;
     width: fit-content;
     background-color: rgba(0,0,0,0.5);
     color: white;
-    font-size: 40px;
+    font-size: 1vmin;
 }
 
 #imgcredit > a:link {
+    object-fit: cover;
     color: white;
     text-decoration: none;
 }
 
 #imgcredit > a:hover {
+    object-fit: cover;
     color: cadetblue;
     text-decoration: none;
 }
