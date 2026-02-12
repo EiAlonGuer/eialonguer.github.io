@@ -10,12 +10,12 @@ const handleOnUp = () => {
 const handleOnMove = e => {
   if(gallery.dataset.mouseDownAt === "0") return;
   
-  const mouseDelta = parseFloat(gallery.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
+  const mouseDelta = parseFloat(gallery.dataset.mouseDownAt) - e.clientX;
+  const maxDelta = window.innerWidth / 2;
   
-  const percentage = (mouseDelta / maxDelta) * -100,
-        nexP1 = parseFloat(gallery.dataset.prevPercentage) + percentage,
-        nextPercentage = Math.max(Math.min(nexP1, 0), -100);
+  const percentage = (mouseDelta / maxDelta) * -100;
+  const nexP1 = parseFloat(gallery.dataset.prevPercentage) + percentage;
+  const nextPercentage = Math.max(Math.min(nexP1, 0), -100);
   
   gallery.dataset.percentage = nextPercentage;
   
