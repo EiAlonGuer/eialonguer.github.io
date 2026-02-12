@@ -6,14 +6,14 @@ body{
     overflow: hidden;
 }
 
-#image-display > .image{
+#image-gallery > .image{
     width: 40vmin;
     height: 56vmin;
     object-fit: cover;
     object-position: center;
 }
 
-#image-display{
+#image-gallery{
     display: flex;
     gap: 4vmin;
     position:absolute;
