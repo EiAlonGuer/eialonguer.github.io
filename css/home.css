@@ -1,6 +1,5 @@
 body{
-    height: 100dvh;
-    width: 100lvw;
+    width: 100%;
     background-color: black;
     margin: 0rem;
     overflow: hidden;
@@ -8,12 +7,18 @@ body{
 
 #header{
     display: block;
+    position: absolute;
     width: 100lvw;
     text-align: center;
     font-size: 3dvh;
     color : white;
     background-color: red;
     object-fit: cover;
+}
+
+#imgcont{
+    height: 80dvh;
+    width: 49.442dvh;
 }
 
 #imgcont > .image{
@@ -31,6 +36,8 @@ body{
     background-color: rgba(0,0,0,0.5);
     color: white;
     font-size: 1dvh;
+    z-index: 3;
+    user-select: all;
 }
 
 #imgcredit > a:link {
@@ -52,4 +59,27 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    user-select: none;
+}
+
+#imgoverlay{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 2;
+    user-select: none;
+}
+
+a.filler{
+    display: block;
+    position: absolute;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 8dvh;
 }
