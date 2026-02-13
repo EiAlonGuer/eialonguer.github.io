@@ -1,19 +1,31 @@
 body{
     width: 100%;
     background-color: black;
-    margin: 0rem;
+    margin: 0 0;
     overflow: hidden;
+    box-sizing: border-box;
+    position:fixed;
+    padding: 0 0;
 }
 
 #header{
     display: block;
-    position: absolute;
-    width: 100lvw;
+    position: clip;
+    left: 0;
+    width: 100%;
     text-align: center;
     font-size: 3dvh;
     color : white;
     background-color: red;
     object-fit: cover;
+    z-index: 10;
+
+}
+
+#menu{
+        text-align: center;
+        width: 100;
+        left: 0;
 }
 
 #imgcont{
@@ -55,7 +67,7 @@ body{
 #gallery{
     display: flex;
     gap: 5lvw;
-    position:absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -82,4 +94,16 @@ a.filler{
     color: white;
     text-align: center;
     font-size: 8dvh;
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        width: 100%;
+        display: block; /* Stack vertically for mobile */
+        padding: 10px;
+    }
+    
+    .menu {
+        display: none; /* Hide standard menu, show hamburger */
+    }
 }
