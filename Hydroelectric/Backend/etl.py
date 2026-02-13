@@ -141,6 +141,7 @@ def optimize_schedule():
     sell_hours = [h for p, h in indexed_prices[-4:]]
     
     reservoir_level = INITIAL_LEVEL_MWH
+    start_level = reservoir_level
     total_profit = 0.0
     history = []
     
@@ -190,11 +191,15 @@ def optimize_schedule():
             "action": action
         })
 
+    end_level = reservoir_level
+
     output = {
         "metadata": {
             "date": current_date.strftime("%Y-%m-%d"),
             "total_profit": round(total_profit, 2),
-            "net_inflow_today": round(inflow_rate * 24, 2)
+            "net_inflow_today": round(inflow_rate * 24, 2),
+            "reservoir_start": start_level,
+            "reservoir_end": end_level
         },
         "data": history
     }

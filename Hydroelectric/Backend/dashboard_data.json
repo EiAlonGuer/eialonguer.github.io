@@ -2,7 +2,9 @@
     "metadata": {
         "date": "2026-02-13",
         "total_profit": 5124.5,
-        "net_inflow_today": 72.0
+        "net_inflow_today": 72.0,
+        "reservoir_start": 250.0,
+        "reservoir_end": 282.0
     },
     "data": [
         {
