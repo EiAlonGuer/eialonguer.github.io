@@ -1,7 +1,63 @@
-body{
-    display: block;
-    background-color: red;
-    color: white;
-    font-family: Georgia;
-    font-size: 20dvh;
+/* Industrial Dark Theme Overrides */
+:root {
+    --bg-dark: #1a1a1a;
+    --panel-bg: #262626;
+    --neon-green: #39ff14;
+    --neon-red: #ff073a;
+    --neon-cyan: #00ffff;
+    --text-dim: #a3a3a3;
+    --text-bright: #f5f5f5;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-bright);
+    font-family: 'Courier New', Courier, monospace; /* Monospace for industrial look */
+}
+
+/* Card Styling */
+.kpi-card {
+    background-color: var(--panel-bg);
+    border: 1px solid #333;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.kpi-card:hover {
+    border-color: var(--text-dim);
+}
+
+/* Chart Container */
+.chart-container {
+    background-color: var(--panel-bg);
+    border: 1px solid #333;
+    position: relative;
+    height: 60vh; /* Dominates the screen */
+    width: 100%;
+}
+
+/* Status Indicators */
+.status-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-green { background-color: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); }
+.status-red { background-color: var(--neon-red); box-shadow: 0 0 8px var(--neon-red); }
+.status-cyan { background-color: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); }
+
+/* Scrollbar for dashboard feel */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark); 
+}
+::-webkit-scrollbar-thumb {
+    background: #444; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

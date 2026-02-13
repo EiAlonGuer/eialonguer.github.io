@@ -1,0 +1,46 @@
+name: Daily Hydro Update
+
+on:
+  # 1. Run automatically at 14:00 UTC (approx 15:00 CET)
+  # This ensures the Day-Ahead auction for tomorrow is finished and data is available.
+  schedule:
+    - cron: '0 14 * * *'
+  
+  # 2. Add a manual "Run Workflow" button in GitHub Actions tab for testing
+  workflow_dispatch:
+
+# Grant permission to commit changes back to the repo
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas requests python-dotenv
+
+      - name: Run ETL Script
+        env:
+          # Inject the secret from GitHub Settings into the runner
+          ENTSOE_KEY: ${{ secrets.ENTSOE_KEY }}
+        run: python etl.py
+
+      - name: Commit and Push Data
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add dashboard_data.json
+          # The '|| exit 0' prevents the workflow from failing if there are no changes
+          git commit -m "Auto-update: Hydro Schedule & Prices" || exit 0
+          git push

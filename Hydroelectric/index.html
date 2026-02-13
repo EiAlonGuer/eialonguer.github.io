@@ -1,11 +1,63 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Hydroelectric project</title>
-        <link rel="stylesheet" href="../css/hydro.css" type="text/css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydro Arbitrage System</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="../css/hydro.css">
+</head>
+<body class="p-4 md:p-6 h-screen flex flex-col gap-6">
 
-    <body>
-        There's nothing here yet, come back soon!
-    </body>
-    </html>
+    <header class="flex justify-between items-center border-b border-gray-800 pb-4">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tighter text-gray-100">HYDRO_ARBITRAGE_V1</h1>
+            <p class="text-sm text-gray-500" id="last-updated">System Status: SYNCING...</p>
+        </div>
+        <div class="text-right hidden md:block">
+            <div class="text-xs text-gray-500">RESERVOIR CAPACITY</div>
+            <div class="text-xl font-bold text-cyan-400">500 MWh</div>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <div class="kpi-card p-4 rounded-lg flex flex-col justify-between">
+            <span class="text-gray-400 text-xs uppercase tracking-widest">Est. Daily Profit</span>
+            <div class="flex items-end gap-2 mt-2">
+                <span class="text-3xl font-bold text-[#39ff14]" id="kpi-profit">--</span>
+                <span class="text-sm text-gray-500 mb-1">EUR</span>
+            </div>
+        </div>
+
+        <div class="kpi-card p-4 rounded-lg flex flex-col justify-between">
+            <span class="text-gray-400 text-xs uppercase tracking-widest">Natural Inflow</span>
+            <div class="flex items-end gap-2 mt-2">
+                <span class="text-3xl font-bold text-cyan-400" id="kpi-inflow">--</span>
+                <span class="text-sm text-gray-500 mb-1">MWh</span>
+            </div>
+        </div>
+
+        <div class="kpi-card p-4 rounded-lg flex flex-col justify-between">
+            <span class="text-gray-400 text-xs uppercase tracking-widest">Reservoir Trend</span>
+            <div class="flex items-center gap-2 mt-2">
+                <span class="text-2xl font-bold text-white" id="kpi-trend">--</span>
+                <div id="trend-indicator" class="status-dot"></div>
+            </div>
+            <div class="text-xs text-gray-500 mt-1">Start vs End of Day</div>
+        </div>
+    </div>
+
+    <main class="flex-grow w-full">
+        <div class="chart-container rounded-lg p-2 md:p-4">
+            <canvas id="hydroChart"></canvas>
+        </div>
+    </main>
+
+    <script src="../js/hydro.js"></script>
+</body>
+</html>
