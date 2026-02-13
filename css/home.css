@@ -94,15 +94,3 @@ a.filler{
     text-align: center;
     font-size: 8dvh;
 }
-
-@media screen and (max-width: 767px) {
-    .container {
-        width: 100%;
-        display: block; /* Stack vertically for mobile */
-        padding: 10px;
-    }
-    
-    .menu {
-        display: none; /* Hide standard menu, show hamburger */
-    }
-}
