@@ -28,7 +28,9 @@ function updateKPIs(meta) {
     document.getElementById('kpi-inflow').innerText = meta.net_inflow_today;
 
     // 3. Trend (Start vs End Level)
-    const diff = meta.reservoir_end - meta.reservoir_start;
+    const start = Number(meta.reservoir_start);
+    const end = Number(meta.reservoir_end);
+    const diff = end - start;
     const trendEl = document.getElementById('kpi-trend');
     const indicator = document.getElementById('trend-indicator');
 
