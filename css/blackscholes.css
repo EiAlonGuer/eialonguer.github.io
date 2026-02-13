@@ -2,6 +2,6 @@ body{
     display: block;
     background-color: red;
     color: white;
-    font-family: Georgia;
-    font-size: 20dvh;
+    font-family: monospace;
+    font-size: 8lvh;
 }
