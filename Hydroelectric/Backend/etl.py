@@ -195,7 +195,7 @@ def optimize_schedule():
 
     output = {
         "metadata": {
-            "date": current_date.strftime("%Y-%m-%d"),
+            "date": current_date.strftime("%Y-%m-%d %H:%M:%S"),
             "total_profit": round(total_profit, 2),
             "net_inflow_today": round(inflow_rate * 24, 2),
             "reservoir_start": start_level,
