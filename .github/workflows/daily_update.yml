@@ -34,7 +34,7 @@ jobs:
         env:
           # Inject the secret from GitHub Settings into the runner
           ENTSOE_KEY: ${{ secrets.ENTSOE_KEY }}
-        run: python etl.py
+        run: python Hydroelectric/Backend/etl.py
 
       - name: Commit and Push Data
         run: |
