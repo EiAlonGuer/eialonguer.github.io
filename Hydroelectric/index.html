@@ -26,19 +26,18 @@
                 <p id="last-updated">System Status: SYNCING...</p>
             </div>
             <div class="header-right">
-                <div class="label">RESERVOIR CAPACITY</div>
-                <div class="value">500 MWh</div>
+                <button id="about-btn" class="btn-neon">ABOUT PROJECT</button>
             </div>
         </header>
 
         <div class="kpi-grid">
-            
-            <div class="kpi-card">
-                <span class="kpi-label">Est. Daily Profit</span>
+            <div class="kpi-card" id="CAPACITY">
+                <div class="kpi-label">RESERVOIR CAPACITY</div>
                 <div class="kpi-value-group">
-                    <span class="kpi-number text-neon-green" id="kpi-profit">--</span>
-                    <span class="kpi-unit">EUR</span>
+                <span class="kpi-number text-neon-cyan" id="capacity">500</span>
+                <span class="kpi-unit">MWh</span>
                 </div>
+
             </div>
 
             <div class="kpi-card">
@@ -46,6 +45,14 @@
                 <div class="kpi-value-group">
                     <span class="kpi-number text-neon-cyan" id="kpi-inflow">--</span>
                     <span class="kpi-unit">MWh</span>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <span class="kpi-label">Est. Daily Profit</span>
+                <div class="kpi-value-group">
+                    <span class="kpi-number text-neon-green" id="kpi-profit">--</span>
+                    <span class="kpi-unit">EUR</span>
                 </div>
             </div>
 
@@ -64,6 +71,23 @@
                 <canvas id="hydroChart"></canvas>
             </div>
         </main>
+    </div>
+
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>SYSTEM ARCHITECTURE</h2>
+            <div class="modal-body">
+                <p><strong>Objective:</strong> maximize revenue by pumping water when electricity is cheap and turbining when expensive.</p>
+                <hr>
+                <ul>
+                    <li><strong>Data Source:</strong> ENTSO-E (Day-Ahead Prices)</li>
+                    <li><strong>Algorithm:</strong> Python Constraint Solver</li>
+                    <li><strong>Stack:</strong> GitHub Actions (Backend) + Vanilla JS (Frontend)</li>
+                </ul>
+                <p class="small-text">Simulated Reservoir: 500 MWh | Efficiency: 80%</p>
+            </div>
+        </div>
     </div>
 
     <script src="../js/hydro.js"></script>

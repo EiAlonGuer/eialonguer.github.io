@@ -121,3 +121,25 @@ function renderChart(hourlyData) {
         }
     });
 }
+
+// --- MODAL LOGIC ---
+const modal = document.getElementById("info-modal");
+const btn = document.getElementById("about-btn");
+const span = document.getElementsByClassName("close-btn")[0];
+
+// Open
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// Close (X button)
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Close (Click outside)
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
