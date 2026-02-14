@@ -67,7 +67,21 @@ function renderChart(hourlyData) {
                     borderWidth: 2,
                     yAxisID: 'y-price',
                     tension: 0.4,
-                    pointRadius: 0
+                    pointRadius: 0,
+                    // --- NEW ANIMATION CONFIG ---
+                    animations: {
+                        // 1. Disable movement (stops the "falling" effect)
+                        y: {
+                            duration: 0 
+                        },
+                        // 2. Add Fade-In effect
+                        opacity: {
+                            duration: 1000,  // 1 second fade
+                            from: 0,
+                            to: 1,
+                            easing: 'easeOutQuad'
+                        }
+                    }
                 },
                 {
                     label: 'Reservoir Level (MWh)',
@@ -85,6 +99,10 @@ function renderChart(hourlyData) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            animation: {
+                duration: 2000, // 2000ms = 2 seconds to finish drawing
+                easing: 'easeOutQuart' // Starts fast, slows down at the end
+            },
             interaction: {
                 mode: 'index',
                 intersect: false,
