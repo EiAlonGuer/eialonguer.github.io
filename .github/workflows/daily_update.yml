@@ -4,7 +4,7 @@ on:
   # 1. Run automatically at 14:00 UTC (approx 15:00 CET)
   # This ensures the Day-Ahead auction for tomorrow is finished and data is available.
   schedule:
-    - cron: '20 21 * * *'
+    - cron: '00 14 * * *'
   
   # 2. Add a manual "Run Workflow" button in GitHub Actions tab for testing
   workflow_dispatch:
