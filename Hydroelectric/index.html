@@ -6,8 +6,11 @@
     <title>Hydro Arbitrage Simulation</title>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="../css/hydro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
     
@@ -22,7 +25,7 @@
     <div class="dashboard-container">
         <header class="dashboard-header">
             <div class="header-left">
-                <h1>HYDRO_ARBITRAGE_V1</h1>
+                <h1>Hydroelectric Arbitrage Engine</h1>
                 <p id="last-updated">System Status: SYNCING...</p>
             </div>
             <div class="header-right">
@@ -76,16 +79,9 @@
     <div id="info-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2>SYSTEM ARCHITECTURE</h2>
-            <div class="modal-body">
-                <p><strong>Objective:</strong> maximize revenue by pumping water when electricity is cheap and turbining when expensive.</p>
-                <hr>
-                <ul>
-                    <li><strong>Data Source:</strong> ENTSO-E (Day-Ahead Prices)</li>
-                    <li><strong>Algorithm:</strong> Python Constraint Solver</li>
-                    <li><strong>Stack:</strong> GitHub Actions (Backend) + Vanilla JS (Frontend)</li>
-                </ul>
-                <p class="small-text">Simulated Reservoir: 500 MWh | Efficiency: 80%</p>
+            <h2>Project Information</h2>
+            <div class="modal-body" id="modal-body-content">
+                Working on it...
             </div>
         </div>
     </div>
