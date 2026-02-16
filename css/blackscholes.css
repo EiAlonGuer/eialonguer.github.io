@@ -60,14 +60,12 @@ body {
     height: 100vh;       /* Full viewport height */
     display: flex;       /* Enable Flexbox */
     flex-direction: column; /* STACK Vertical: Menu on top, App below */
-    overflow: hidden;    /* Prevent body scroll */
 }
 
 /* New Wrapper for Sidebar + Main Panel */
 #app-container {
     display: flex;       /* Horizontal layout for Sidebar/Panel */
     flex: 1;             /* Take up all remaining height below menu */
-    overflow: hidden;    /* Keep scrollbars inside this container */
     width: 100%;
 }
 
