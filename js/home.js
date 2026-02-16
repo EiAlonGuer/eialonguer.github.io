@@ -25,7 +25,7 @@ const handleOnMove = e => {
   
   for(const image of gallery.getElementsByClassName("image")) {
     image.animate({
-      objectPosition: `${100 + nextPercentage}% center`
+      objectPosition: `${65 + nextPercentage}% center`
     }, { duration: 1200, fill: "forwards" });
   }
 }

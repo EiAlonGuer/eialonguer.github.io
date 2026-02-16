@@ -162,7 +162,7 @@ function loadMarkdownContent() {
     // Prevent reloading if already loaded
     if (modalBody.getAttribute('data-loaded') === 'true') return;
 
-    fetch('project.md')
+    fetch('HydroDescription.md')
         .then(response => response.text())
         .then(markdown => {
             // A. Convert Markdown to HTML
