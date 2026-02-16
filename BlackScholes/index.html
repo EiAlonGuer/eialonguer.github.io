@@ -2,18 +2,122 @@
 <html>
     <head>
         <title>Black-Scholes Dashboard</title>
-        <link rel="stylesheet" href="../css/blackscholes.css" type="text/css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/blackscholes.css">
+        <script>
+        window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+        };
+        </script>
+
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </head>
 
     <body>
-           <div id="menu">
-                <ul id="menulinks">
-                <li><a class="link" href="../index.html"><br>Home</a></li>
-                <li><a class="link" href="index.html"><br>Hydro</a></li>
-                <li><a class="link" href="../CV.pdf"><br>CV</a></li>
-                </ul>
+        <div id="menu">
+            <ul id="menulinks">
+            <li><a class="link" href="../index.html"><br>Home</a></li>
+            <li><a class="link" href="/Hydroelectric/index.html"><br>Hydro</a></li>
+            <li><a class="link" href="../CV.pdf"><br>CV</a></li>
+            </ul>
+        </div>
+    
+        <div id="app-container">
+            <div id="sidebar">
+                <div>
+                    <h2>Black-Scholes Model</h2>
+                    <p style="font-size: 0.8rem; color: #64748b;">3D Gamma Surface Visualizer</p>
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <span>Stock Price ($S$):</span>
+                        <span id="val-S" class="value-display">100</span></label>
+                    <input type="range" id="input-S" min="10" max="300" step="1" value="100">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <span>Strike Price ($K$):</span>
+                        <span id="val-K" class="value-display">195</span></label>
+                    <input type="range" id="input-K" min="10" max="300" step="1" value="195">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <span>Volatility ($\sigma$):</span>
+                        <span id="val-sigma" class="value-display">0.75</span></label>
+                    <input type="range" id="input-sigma" min="0.01" max="1.50" step="0.01" value="0.75">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <span>Risk-free Rate ($r$):</span>
+                        <span id="val-r" class="value-display">0.05</span></label>
+                    <input type="range" id="input-r" min="0.00" max="0.20" step="0.005" value="0.05">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <span>Time to Maturity ($T$):</span>
+                        <span id="val-T" class="value-display">4.00</span></label>
+                    <input type="range" id="input-T" min="0.01" max="5.00" step="0.01" value="4.00">
+                </div>
+                
+                <button id="about-btn" class="action-btn">About this project</button>
+
+                <div style="margin-top: 25px; font-size: 0.7rem; color: #64748b;">
+                    Z-Axis visualizes Gamma ($\Gamma$) curvature across Spot/Time plane.
+                </div>
             </div>
-        There's nothing here yet, come back soon!
+
+            <div id="main-panel">
+                
+                <div id="metrics-container">
+                    <div class="metric-card price-call">
+                        <div class="metric-label">Call Price</div>
+                        <div class="metric-value" id="disp-call">--</div>
+                    </div>
+                    <div class="metric-card price-put">
+                        <div class="metric-label">Put Price</div>
+                        <div class="metric-value" id="disp-put">--</div>
+                    </div>
+                    <div class="metric-card">
+                        <table class="greeks-table">
+                            <tr><th>Delta ($\Delta$)</th><td id="disp-delta">--</td></tr>
+                            <tr><th>Gamma ($\Gamma$)</th><td id="disp-gamma">--</td></tr>
+                            <tr><th>Theta ($\Theta$)</th><td id="disp-theta">--</td></tr>
+                            <tr><th>Vega ($\nu$)</th><td id="disp-vega">--</td></tr>
+                            <tr><th>Rho ($\rho$)</th><td id="disp-rho">--</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="plot-container"></div>
+            </div>
+        </div>
+        
+        <div id="info-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Project information</h3>
+                <div class="modal-body" id="modal-body-content">
+                    Working on it...
+                </div>
+            </div>
+        </div>
 
         <script src="/js/blackscholes.js"></script>
     </body>
