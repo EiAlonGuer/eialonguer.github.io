@@ -248,7 +248,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     width: 90%;
-    max-width: 500px;
+    max-width: 95lvw;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     color: var(--text-dim);
     position: relative;
