@@ -6,6 +6,11 @@
     <title>Quant Pairs Dashboard</title>
     <link rel="stylesheet" href="/css/pairtrading.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    
 </head>
 <body>
     <div id="menu">
@@ -76,6 +81,16 @@
             </div>
         </div>
     </div>
+    </div>
+
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Project Information</h2>
+            <div class="modal-body" id="modal-body-content">
+                Working on it...
+            </div>
+        </div>
     </div>
 
 <script src="/js/pairtrading.js"></script>

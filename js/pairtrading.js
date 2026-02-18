@@ -104,7 +104,7 @@ async function loadDashboard() {
                             tension: 0.1
                         },
                         {
-                            label: 'Buy & Hold',
+                            label: '50% Buy & Hold',
                             data: data.cum_buy_hold,
                             borderColor: '#8b949e',
                             borderWidth: 1,
@@ -143,3 +143,59 @@ async function loadDashboard() {
     }
 
     loadDashboard();
+
+// --- MODAL LOGIC ---
+const modal = document.getElementById("info-modal");
+const btn = document.getElementById("about-btn");
+const span = document.getElementsByClassName("close-btn")[0];
+const modalBody = document.querySelector('.modal-body'); // Ensure this class exists in HTML
+
+// 1. Open Modal & Load Content
+btn.onclick = function() {
+    modal.style.display = "block";
+    loadMarkdownContent();
+}
+
+// 2. Close Logic
+span.onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+
+// 3. Fetch, Parse, and Render
+function loadMarkdownContent() {
+    // Prevent reloading if already loaded
+    if (modalBody.getAttribute('data-loaded') === 'true') return;
+
+    fetch('TradingDescription.md')
+        .then(response => response.text())
+        .then(markdown => {
+            // A. Convert Markdown to HTML
+            modalBody.innerHTML = marked.parse(markdown);
+
+            // B. Render Math with KaTeX
+            renderMathInElement(modalBody, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true}, // Block Math
+                    {left: '$', right: '$', display: false}   // Inline Math
+                ]
+            });
+
+            // Mark as loaded so we don't fetch again
+            modalBody.setAttribute('data-loaded', 'true');
+        })
+        .catch(err => {
+            console.error(err);
+            modalBody.innerHTML = "<p style='color:red'>Error loading documentation.</p>";
+        });
+}
+
+// Close (X button)
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Close (Click outside)
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
