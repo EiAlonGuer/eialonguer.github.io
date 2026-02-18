@@ -1,19 +1,83 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Pair Trading Calculator</title>
-        <link rel="stylesheet" href="../css/pairtrading.css" type="text/css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quant Pairs Dashboard</title>
+    <link rel="stylesheet" href="/css/pairtrading.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="menu">
+            <ul id="menulinks">
+            <li><a class="link" href="../index.html"><br>Home</a></li>
+            <li><a class="link" href="/Hydroelectric/index.html"><br>Hydro</a></li>
+            <li><a class="link" href="../CV.pdf"><br>CV</a></li>
+            </ul>
+    </div>
 
-    <body>
-           <div id="menu">
-                <ul id="menulinks">
-                <li><a class="link" href="../index.html"><br>Home</a></li>
-                <li><a class="link" href="index.html"><br>Hydro</a></li>
-                <li><a class="link" href="../CV.pdf"><br>CV</a></li>
-                </ul>
+    <div class="dashboard-container">
+    <header class="dashboard-header">
+        <div class="header-left">
+            <h1>Pairs Trading - Kalman Filter</span></h1>
+            <p class="text-muted" id="last-updated">Loading...</p>
+        </div>
+        <div class="header-right">
+            <button id="about-btn" class="btn-neon">ABOUT PROJECT</button>
+            <button id="pair-badge" class="btn-neon">LOADING / PAIR</span>
+        </div>
+    </header>
+
+    <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">Current Z Score</div>
+                <div class="kpi-number text-neon-cyan" id="score-val">--</div>
+                <div>Target: Revert to 0.0</div>
             </div>
-        There's nothing here yet, come back soon!
-        <script src="/js/pairtrading.js"></script>
-    </body>
-    </html>
+        
+
+        <div class="kpi-card">
+            <div class="kpi-label">Dynamic Beta (Hedge Ratio)</div>
+            <div class="stat-val text-info" id="beta-val">--</div>
+            <small>Adaptive Kalman Slope</small>
+        </div>
+
+        <div class="kpi-card">
+            <div class="kpi-label">Latest Close (Y)</div>
+            <div class="stat-val text-warning" id="price-val">--</div>
+            <small>Asset Price</small>
+        </div>
+    </div>
+
+        <div class="col-full">
+            <div class="card">
+                <div class="kpi-label">Signal: Z-Score</div>
+                <div style="position: relative; height: 300px;">
+                    <canvas id="zScoreChart" style="margin: 0 auto;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-half">
+            <div class="card">
+                <div class="kpi-label">Regime: Dynamic Beta</div>
+                <div style="position: relative; height: 250px; margin: 0 auto;">
+                    <canvas id="betaChart" style="margin: 0 auto;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-half">
+            <div class="card">
+                <div class="kpi-label">Cumulative Performance</div>
+                <div style="position: relative; height: 500px;">
+                    <canvas id="perfChart" style="margin: 0 auto;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script src="/js/pairtrading.js"></script>
+</body>
+</html>
