@@ -124,7 +124,7 @@ def run_strategy():
         "cum_buy_hold": df['cum_buy_hold'].tolist()
     }
 
-    with open('Pairtrading/dashboard_data.json', 'w') as f:
+    with open('PairTrading/dashboard_data.json', 'w') as f:
         json.dump(output_data, f)
     
     print(f"Success: dashboard_data.json updated with {LEVERAGE}x leverage.")
