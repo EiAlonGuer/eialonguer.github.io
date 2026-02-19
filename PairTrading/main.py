@@ -16,10 +16,10 @@ TICKER_B = "QQQ" # Independent Variable (X)
 LOOKBACK_YEARS = 2
 LEVERAGE = 10
 
-def fetch_tiingo_data(ticker, start_date, api_key):
+def fetch_tiingo_data(ticker, start_date, API_KEY):
     """Fetches historical data matching the Researcher logic exactly."""
     headers = {'Content-Type': 'application/json'}
-    url = f"https://api.tiingo.com/tiingo/daily/{ticker}/prices?startDate={start_date}&token={api_key}"
+    url = f"https://api.tiingo.com/tiingo/daily/{ticker}/prices?startDate={start_date}&token={API_KEY}"
     try:
         response = requests.get(url, headers=headers)
         data = response.json()
@@ -130,6 +130,4 @@ def run_strategy():
     print(f"Success: dashboard_data.json updated with {LEVERAGE}x leverage.")
 
 if __name__ == "__main__":
-    if not API_KEY:
-        raise ValueError("TIINGO_API_KEY not found in environment variables.")
     run_strategy()
