@@ -30,7 +30,7 @@ jobs:
       env:
         # Make sure you added this in Settings > Secrets and variables > Actions
         TIINGO_API_KEY: ${{ secrets.TIINGO_KEY }}
-      run: python main.py
+      run: python PairTrading/main.py
       
     - name: Commit and Push Data
       run: |
