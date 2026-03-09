@@ -2,7 +2,9 @@ This project uses ENTSO-e data to simulate the management of a Hydroelectric pow
 ---
 ***Live Version***
 
-v1.01 (9/3/26) Now the model maximizes profite while keeping reservoir levels at or above original levels. Linear optimization is processed through the pulp package.
+v1.01 (9/3/26) Now the model maximizes profite while keeping reservoir levels at or above original levels. Linear optimization is processed through the pulp package. 
+
+Possible misinterpretation: Reservoir Trend not matching the graph happens because the natural inflow in the first hour is already taken into account so it shows a slightly higher number than the initial reservoir level.
 ---
 ***Future updates***
 
