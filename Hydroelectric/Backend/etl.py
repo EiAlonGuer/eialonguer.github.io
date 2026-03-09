@@ -4,6 +4,7 @@ import json
 import requests
 import xml.etree.ElementTree as ET
 import datetime as dt
+import pulp
 from dotenv import load_dotenv
 
 # --- Configuration ---
@@ -133,81 +134,83 @@ def optimize_schedule():
     inflow_rate = get_natural_inflow(month)
     prices = fetch_prices()
     
-    # Identify Strategy
-    indexed_prices = [(p, h) for h, p in enumerate(prices)]
-    indexed_prices.sort()
+    prob = pulp.LpProblem("Reservoir_Optimization", pulp.LpMaximize)
     
-    buy_hours = [h for p, h in indexed_prices[:4]]
-    sell_hours = [h for p, h in indexed_prices[-4:]]
+    hours = range(24)
     
-    reservoir_level = INITIAL_LEVEL_MWH
-    start_level = reservoir_level
-    total_profit = 0.0
+    # Decision Variables
+    # pump[h]: Grid power consumed for pumping (MW)
+    # turbine[h]: Power generated / water released (MW/MWh equivalent)
+    # volume[h]: Reservoir level at the end of hour h (MWh)
+    # spill[h]: Excess water spilled to avoid capacity breach (MWh)
+    turbine = pulp.LpVariable.dicts("Turbine", hours, 0, TURBINE_POWER_MW)
+    pump = pulp.LpVariable.dicts("Pump", hours, 0, PUMP_POWER_MW)
+    volume = pulp.LpVariable.dicts("Volume", hours, 0, MAX_CAPACITY_MWH)
+    spill = pulp.LpVariable.dicts("Spill", hours, 0, None)
+    
+    # Objective Function: Maximize total cash flow
+    prob += pulp.lpSum([turbine[h] * prices[h] - pump[h] * prices[h] for h in hours])
+    
+    # Constraints
+    for h in hours:
+        prev_vol = INITIAL_LEVEL_MWH if h == 0 else volume[h-1]
+            
+        prob += volume[h] == prev_vol + inflow_rate + (pump[h] * ROUND_TRIP_EFFICIENCY) - turbine[h] - spill[h]
+        
+    # Boundary Constraint: End level must be at least the initial level
+    prob += volume[23] >= INITIAL_LEVEL_MWH
+    
+    prob.solve(pulp.PULP_CBC_CMD(msg=0))
+    
+    if pulp.LpStatus[prob.status] != "Optimal":
+        print("Error: Optimal solution not found. Verify input constraints.")
+        return
+        
+    total_profit = pulp.value(prob.objective)
     history = []
     
     print(f"--- Simulation Start (Month: {month}) ---")
     
-    for hour in range(24):
-        price = prices[hour]
+    # Reconstruct timeline from optimized variables
+    for h in hours:
+        t_val = turbine[h].varValue
+        p_val = pump[h].varValue
+        v_val = volume[h].varValue
+        s_val = spill[h].varValue
+        price = prices[h]
+        
         action = "HOLD"
-        cash_flow = 0.0
         
-        if hour in buy_hours: planned = "PUMP"
-        elif hour in sell_hours: planned = "TURBINE"
-        else: planned = "HOLD"
+        # Tolerance check limits floating-point inaccuracies from the solver
+        if t_val > 0.001:
+            action = "TURBINE"
+        elif p_val > 0.001:
+            action = "PUMP"
+        elif s_val > 0.001:
+            action = "SPILLAGE"
             
-        # Physics
-        reservoir_level += inflow_rate
-        
-        if planned == "PUMP":
-            space = MAX_CAPACITY_MWH - reservoir_level
-            add = min(PUMP_POWER_MW * ROUND_TRIP_EFFICIENCY, space)
-            if add > 0:
-                reservoir_level += add
-                cash_flow = -( (add / ROUND_TRIP_EFFICIENCY) * price )
-                action = "PUMP"
-            else: action = "SKIPPED_FULL"
-
-        elif planned == "TURBINE":
-            avail = reservoir_level
-            release = min(TURBINE_POWER_MW, avail)
-            if release > 0:
-                reservoir_level -= release
-                cash_flow = release * price
-                action = "TURBINE"
-            else: action = "SKIPPED_EMPTY"
-        
-        # Spillage Check
-        if reservoir_level > MAX_CAPACITY_MWH:
-            reservoir_level = MAX_CAPACITY_MWH
-            if action == "HOLD": action = "SPILLAGE"
-        
-        total_profit += cash_flow
-        
         history.append({
-            "hour": f"{hour:02d}:00",
+            "hour": f"{h:02d}:00",
             "price": round(price, 2),
-            "reservoir": round(reservoir_level, 2),
+            "reservoir": round(v_val, 2),
             "action": action
         })
-
-    end_level = reservoir_level
-
+        
     output = {
         "metadata": {
             "date": current_date.strftime("%Y-%m-%d %H:%M:%S"),
             "total_profit": round(total_profit, 2),
             "net_inflow_today": round(inflow_rate * 24, 2),
-            "reservoir_start": start_level,
-            "reservoir_end": end_level
+            "reservoir_start": INITIAL_LEVEL_MWH,
+            "reservoir_end": round(volume[23].varValue, 2)
         },
         "data": history
     }
 
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(output, f, indent=4)
-    
-    print(f"Success. Profit: {total_profit} EUR.")
+        
+    print(f"Success. Profit: {round(total_profit, 2)} EUR.")
 
 if __name__ == "__main__":
     optimize_schedule()
