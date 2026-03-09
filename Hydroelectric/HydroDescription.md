@@ -2,10 +2,10 @@ This project uses ENTSO-e data to simulate the management of a Hydroelectric pow
 ---
 ***Live Version***
 
-v1.0 (15/2/26) Currently, the application forces pumping in the 4 cheapest hours of the day and dumping in the 4 most expensive hours. No other constraints are in place.
+v1.01 (9/3/26) Now the model maximizes profite while keeping reservoir levels at or above original levels. Linear optimization is processed through the pulp package.
 ---
 ***Future updates***
 
--Will soon upgrade the profit logic to mantain reservoir levels while maximizing profit, considering bigger dumping/pumping schedules.
+-Might include quarter-hour behaviour, cooldown to improve realism and functionality.
 
 -Might upgrade to a time series prediction for the price to estimate the schedule, formulate the model and contrast it with actual prices for profit measuring.
