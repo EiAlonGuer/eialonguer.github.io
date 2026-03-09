@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install pandas requests python-dotenv
+          pip install pandas requests python-dotenv pulp
 
       - name: Run ETL Script
         env:
