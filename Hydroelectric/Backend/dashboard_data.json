@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "date": "2026-04-15 15:05:37",
-        "total_profit": 44534.1,
+        "date": "2026-04-16 15:27:02",
+        "total_profit": 47047.0,
         "net_inflow_today": 240.0,
         "reservoir_start": 250.0,
         "reservoir_end": 250.0
@@ -9,147 +9,147 @@
     "data": [
         {
             "hour": "00:00",
-            "price": 112.08,
-            "reservoir": 260.0,
-            "action": "HOLD"
+            "price": 120.0,
+            "reservoir": 210.0,
+            "action": "TURBINE"
         },
         {
             "hour": "01:00",
-            "price": 110.35,
-            "reservoir": 270.0,
-            "action": "HOLD"
+            "price": 115.75,
+            "reservoir": 200.0,
+            "action": "TURBINE"
         },
         {
             "hour": "02:00",
-            "price": 108.0,
-            "reservoir": 280.0,
-            "action": "HOLD"
-        },
-        {
-            "hour": "03:00",
-            "price": 110.0,
-            "reservoir": 290.0,
-            "action": "HOLD"
-        },
-        {
-            "hour": "04:00",
-            "price": 110.87,
-            "reservoir": 300.0,
-            "action": "HOLD"
-        },
-        {
-            "hour": "05:00",
-            "price": 118.0,
-            "reservoir": 310.0,
-            "action": "HOLD"
-        },
-        {
-            "hour": "06:00",
-            "price": 136.12,
-            "reservoir": 270.0,
-            "action": "TURBINE"
-        },
-        {
-            "hour": "07:00",
-            "price": 145.55,
-            "reservoir": 230.0,
-            "action": "TURBINE"
-        },
-        {
-            "hour": "08:00",
-            "price": 134.2,
-            "reservoir": 190.0,
-            "action": "TURBINE"
-        },
-        {
-            "hour": "09:00",
-            "price": 111.3,
-            "reservoir": 200.0,
-            "action": "HOLD"
-        },
-        {
-            "hour": "10:00",
-            "price": 104.94,
+            "price": 113.61,
             "reservoir": 210.0,
             "action": "HOLD"
         },
         {
+            "hour": "03:00",
+            "price": 111.01,
+            "reservoir": 220.0,
+            "action": "HOLD"
+        },
+        {
+            "hour": "04:00",
+            "price": 111.93,
+            "reservoir": 230.0,
+            "action": "HOLD"
+        },
+        {
+            "hour": "05:00",
+            "price": 119.52,
+            "reservoir": 190.0,
+            "action": "TURBINE"
+        },
+        {
+            "hour": "06:00",
+            "price": 140.0,
+            "reservoir": 150.0,
+            "action": "TURBINE"
+        },
+        {
+            "hour": "07:00",
+            "price": 147.14,
+            "reservoir": 110.0,
+            "action": "TURBINE"
+        },
+        {
+            "hour": "08:00",
+            "price": 125.01,
+            "reservoir": 70.0,
+            "action": "TURBINE"
+        },
+        {
+            "hour": "09:00",
+            "price": 103.83,
+            "reservoir": 80.0,
+            "action": "HOLD"
+        },
+        {
+            "hour": "10:00",
+            "price": 89.04,
+            "reservoir": 130.0,
+            "action": "PUMP"
+        },
+        {
             "hour": "11:00",
-            "price": 89.9,
-            "reservoir": 260.0,
+            "price": 67.53,
+            "reservoir": 180.0,
             "action": "PUMP"
         },
         {
             "hour": "12:00",
-            "price": 62.47,
-            "reservoir": 310.0,
+            "price": 43.45,
+            "reservoir": 230.0,
             "action": "PUMP"
         },
         {
             "hour": "13:00",
-            "price": 52.7,
-            "reservoir": 360.0,
+            "price": 31.56,
+            "reservoir": 280.0,
             "action": "PUMP"
         },
         {
             "hour": "14:00",
-            "price": 65.0,
-            "reservoir": 410.0,
+            "price": 48.1,
+            "reservoir": 330.0,
             "action": "PUMP"
         },
         {
             "hour": "15:00",
-            "price": 87.56,
-            "reservoir": 460.0,
+            "price": 73.34,
+            "reservoir": 380.0,
             "action": "PUMP"
         },
         {
             "hour": "16:00",
-            "price": 105.1,
-            "reservoir": 470.0,
-            "action": "HOLD"
+            "price": 91.66,
+            "reservoir": 430.0,
+            "action": "PUMP"
         },
         {
             "hour": "17:00",
-            "price": 113.3,
-            "reservoir": 480.0,
+            "price": 109.13,
+            "reservoir": 440.0,
             "action": "HOLD"
         },
         {
             "hour": "18:00",
-            "price": 137.2,
-            "reservoir": 440.0,
-            "action": "TURBINE"
-        },
-        {
-            "hour": "19:00",
-            "price": 151.83,
+            "price": 129.7,
             "reservoir": 400.0,
             "action": "TURBINE"
         },
         {
-            "hour": "20:00",
-            "price": 154.1,
+            "hour": "19:00",
+            "price": 146.2,
             "reservoir": 360.0,
             "action": "TURBINE"
         },
         {
-            "hour": "21:00",
-            "price": 149.93,
+            "hour": "20:00",
+            "price": 152.8,
             "reservoir": 320.0,
             "action": "TURBINE"
         },
         {
-            "hour": "22:00",
-            "price": 137.35,
+            "hour": "21:00",
+            "price": 134.81,
             "reservoir": 280.0,
             "action": "TURBINE"
         },
         {
-            "hour": "23:00",
-            "price": 127.54,
-            "reservoir": 250.0,
+            "hour": "22:00",
+            "price": 124.14,
+            "reservoir": 240.0,
             "action": "TURBINE"
+        },
+        {
+            "hour": "23:00",
+            "price": 113.56,
+            "reservoir": 250.0,
+            "action": "HOLD"
         }
     ]
 }
