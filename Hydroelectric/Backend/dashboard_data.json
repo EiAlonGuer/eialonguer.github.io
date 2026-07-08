@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "date": "2026-07-07 16:31:18",
-        "total_profit": 84490.88,
+        "date": "2026-07-08 16:01:45",
+        "total_profit": 94083.0,
         "net_inflow_today": 528.0,
         "reservoir_start": 250.0,
         "reservoir_end": 250.0
@@ -9,145 +9,145 @@
     "data": [
         {
             "hour": "00:00",
-            "price": 120.0,
+            "price": 140.1,
             "reservoir": 222.0,
             "action": "TURBINE"
         },
         {
             "hour": "01:00",
-            "price": 117.96,
+            "price": 136.57,
             "reservoir": 194.0,
             "action": "TURBINE"
         },
         {
             "hour": "02:00",
-            "price": 113.71,
-            "reservoir": 188.0,
+            "price": 133.51,
+            "reservoir": 166.0,
             "action": "TURBINE"
         },
         {
             "hour": "03:00",
-            "price": 113.01,
-            "reservoir": 210.0,
-            "action": "HOLD"
+            "price": 131.0,
+            "reservoir": 140.0,
+            "action": "TURBINE"
         },
         {
             "hour": "04:00",
-            "price": 114.2,
-            "reservoir": 182.0,
+            "price": 132.7,
+            "reservoir": 112.0,
             "action": "TURBINE"
         },
         {
             "hour": "05:00",
-            "price": 121.7,
-            "reservoir": 154.0,
+            "price": 137.67,
+            "reservoir": 84.0,
             "action": "TURBINE"
         },
         {
             "hour": "06:00",
-            "price": 132.82,
-            "reservoir": 126.0,
+            "price": 150.78,
+            "reservoir": 56.0,
             "action": "TURBINE"
         },
         {
             "hour": "07:00",
-            "price": 135.0,
-            "reservoir": 98.0,
+            "price": 150.66,
+            "reservoir": 28.0,
             "action": "TURBINE"
         },
         {
             "hour": "08:00",
-            "price": 129.36,
-            "reservoir": 70.0,
+            "price": 137.0,
+            "reservoir": 0.0,
             "action": "TURBINE"
         },
         {
             "hour": "09:00",
-            "price": 110.1,
-            "reservoir": 92.0,
-            "action": "HOLD"
+            "price": 116.2,
+            "reservoir": 2.0,
+            "action": "TURBINE"
         },
         {
             "hour": "10:00",
-            "price": 94.98,
-            "reservoir": 114.0,
+            "price": 97.0,
+            "reservoir": 24.0,
             "action": "HOLD"
         },
         {
             "hour": "11:00",
-            "price": 81.0,
-            "reservoir": 176.0,
+            "price": 81.98,
+            "reservoir": 86.0,
             "action": "PUMP"
         },
         {
             "hour": "12:00",
-            "price": 49.56,
-            "reservoir": 238.0,
+            "price": 62.0,
+            "reservoir": 148.0,
             "action": "PUMP"
         },
         {
             "hour": "13:00",
-            "price": 45.08,
-            "reservoir": 300.0,
+            "price": 45.0,
+            "reservoir": 210.0,
             "action": "PUMP"
         },
         {
             "hour": "14:00",
-            "price": 51.42,
-            "reservoir": 362.0,
+            "price": 42.09,
+            "reservoir": 272.0,
             "action": "PUMP"
         },
         {
             "hour": "15:00",
-            "price": 64.07,
-            "reservoir": 424.0,
+            "price": 53.29,
+            "reservoir": 334.0,
             "action": "PUMP"
         },
         {
             "hour": "16:00",
-            "price": 92.07,
-            "reservoir": 446.0,
-            "action": "HOLD"
+            "price": 82.53,
+            "reservoir": 396.0,
+            "action": "PUMP"
         },
         {
             "hour": "17:00",
-            "price": 114.31,
+            "price": 109.61,
             "reservoir": 418.0,
-            "action": "TURBINE"
+            "action": "HOLD"
         },
         {
             "hour": "18:00",
-            "price": 125.0,
+            "price": 136.89,
             "reservoir": 390.0,
             "action": "TURBINE"
         },
         {
             "hour": "19:00",
-            "price": 141.7,
+            "price": 160.96,
             "reservoir": 362.0,
             "action": "TURBINE"
         },
         {
             "hour": "20:00",
-            "price": 172.0,
+            "price": 167.0,
             "reservoir": 334.0,
             "action": "TURBINE"
         },
         {
             "hour": "21:00",
-            "price": 176.24,
+            "price": 170.06,
             "reservoir": 306.0,
             "action": "TURBINE"
         },
         {
             "hour": "22:00",
-            "price": 169.0,
+            "price": 168.74,
             "reservoir": 278.0,
             "action": "TURBINE"
         },
         {
             "hour": "23:00",
-            "price": 147.98,
+            "price": 153.67,
             "reservoir": 250.0,
             "action": "TURBINE"
         }
